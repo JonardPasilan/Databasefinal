@@ -1,3 +1,4 @@
+/* Navbar Styles */
 .navbar {
     background-color: #333;
     color: white;
@@ -24,13 +25,22 @@
     border-radius: 4px;
 }
 
+/* Dashboard Grid Layout */
 .dashboard-grid {
     display: grid;
     grid-template-columns: 250px 1fr;
     gap: 2rem;
     margin-top: 2rem;
 }
+.dashboard-main h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
 
+
+/* Sidebar Styles */
 .dashboard-sidebar {
     background-color: white;
     padding: 1rem;
@@ -51,29 +61,46 @@
     border-radius: 4px;
 }
 
-.dashboard-sidebar ul li a:hover,
-.dashboard-sidebar ul li a.active {
-    background-color: #f0f0f0;
+.dashboard-sidebar ul li a:hover {
+    background-color: #e0e0e0;
+    color: #000;
 }
 
+.dashboard-sidebar ul li a.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Course Cards Grid */
 .courses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
+/* Course Card Styles */
 .course-card {
     background-color: white;
     padding: 1.5rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Progress Bar */
 .progress-bar {
     background-color: #f0f0f0;
     border-radius: 10px;
     height: 10px;
     margin: 1rem 0;
+    overflow: hidden;
+    position: relative;
 }
 
 .progress {
@@ -81,8 +108,27 @@
     height: 100%;
     border-radius: 10px;
     transition: width 0.3s ease;
+    position: relative;
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 10px;
 }
 
+.progress::after {
+    content: attr(data-progress) "%";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* Continue Button */
 .btn-continue {
     display: inline-block;
     background-color: #4CAF50;
@@ -91,8 +137,20 @@
     padding: 0.5rem 1rem;
     border-radius: 4px;
     margin-top: 1rem;
+    transition: background-color 0.3s ease;
 }
 
 .btn-continue:hover {
     background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sidebar {
+        margin-bottom: 2rem;
+    }
 }
